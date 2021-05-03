@@ -5,10 +5,22 @@
  */
 package com.kx.guessinggame.service;
 
+import com.kx.guessinggame.dto.Game;
+import java.util.List;
+
 /**
  *
  * @author khuxi
  */
 public interface GameService {
     
+    Game add(Game game);
+
+    List<Game> getAll();
+
+    Game findById(int id);
+
+    boolean update(Game game);
+
+    boolean deleteById(int id);
 }
