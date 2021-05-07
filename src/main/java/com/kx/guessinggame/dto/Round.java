@@ -7,20 +7,44 @@ package com.kx.guessinggame.dto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author khuxi
  */
+@Entity
+@Table(name = "rounds")
 public class Round {
     
+    @Column(name="gameId")
     private int gameId;
+    
+    @Id
+    @Column(name="roundId")
     private String roundId;
+    
+    @Column(name="round")
     private int round;
+    
+    @Column(name="guess")
     private String guess;
+    
+    @Column(name="partial")
     private int partial;
+    
+    @Column(name="exact")
     private int exact;
+    
+    @Column(name="stampDate")
     private LocalDate stampDate;
+    
+    @Column(name="stampTime")
     private LocalTime stampTime;
 
     public LocalDate getStampDate() {

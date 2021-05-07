@@ -5,15 +5,36 @@
  */
 package com.kx.guessinggame.dto;
 
+import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
  *
  * @author khuxi
  */
+@Entity
+@Table(name = "games")
 public class Game {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)//(strategy = GenerationType.IDENTITY)
+    @Column(name="gameId")
     private int gameId;
+    
+    @Column(name="answer")
     private String answer;
+    
+    @Column(name="round")
     private int round;
+    
+    @Column(name="finished")
     private boolean finished;
 
     public int getRound() {
