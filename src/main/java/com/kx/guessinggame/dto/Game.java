@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  *
@@ -24,16 +26,20 @@ import javax.persistence.Table;
 public class Game {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="gameId")
     private int gameId;
     
     @Column(name="answer")
     private String answer;
     
+    @NotNull
+    @Value("0")
     @Column(name="round")
     private int round;
     
+    @NotNull
+    @Value("0")
     @Column(name="finished")
     private boolean finished;
 

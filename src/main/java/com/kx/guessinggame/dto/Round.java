@@ -7,12 +7,18 @@ package com.kx.guessinggame.dto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  *
@@ -22,29 +28,29 @@ import javax.persistence.Table;
 @Table(name = "rounds")
 public class Round {
     
-    @Column(name="gameId")
-    private int gameId;
-    
     @Id
-    @Column(name="roundId")
+    @Column
     private String roundId;
     
-    @Column(name="round")
+    @Column
+    private int gameId;
+       
+    @Column
     private int round;
     
-    @Column(name="guess")
+    @Column
     private String guess;
     
-    @Column(name="partial")
+    @Column
     private int partial;
     
-    @Column(name="exact")
+    @Column
     private int exact;
     
-    @Column(name="stampDate")
+    @Column
     private LocalDate stampDate;
     
-    @Column(name="stampTime")
+    @Column
     private LocalTime stampTime;
 
     public LocalDate getStampDate() {
